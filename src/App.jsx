@@ -9,6 +9,7 @@ function App() {
   const [currentPage, setCurrentPage] = createSignal('login')
   const [loading, setLoading] = createSignal(false)
   const [language, setLanguage] = createSignal('')
+  const [scenario, setScenario] = createSignal('')
   const [conversation, setConversation] = createSignal([])
   const [userInput, setUserInput] = createSignal('')
   const [feedback, setFeedback] = createSignal('')
@@ -18,17 +19,57 @@ function App() {
     const { data: { user } } = await supabase.auth.getUser()
     if (user) {
       setUser(user)
-      setCurrentPage('languageSelection')
+      if (conversation().length > 0) {
+        setCurrentPage('conversation')
+      } else {
+        setCurrentPage('languageSelection')
+      }
     }
   }
 
-  onMount(checkUserSignedIn)
+  onMount(() => {
+    checkUserSignedIn()
+
+    // Restore state from localStorage
+    const savedConversation = localStorage.getItem('conversation')
+    const savedLanguage = localStorage.getItem('language')
+    const savedScenario = localStorage.getItem('scenario')
+
+    if (savedLanguage) {
+      setLanguage(savedLanguage)
+    }
+
+    if (savedScenario) {
+      setScenario(savedScenario)
+    }
+
+    if (savedConversation) {
+      setConversation(JSON.parse(savedConversation))
+      setCurrentPage('conversation')
+    }
+  })
+
+  createEffect(() => {
+    localStorage.setItem('conversation', JSON.stringify(conversation()))
+  })
+
+  createEffect(() => {
+    localStorage.setItem('language', language())
+  })
+
+  createEffect(() => {
+    localStorage.setItem('scenario', scenario())
+  })
 
   createEffect(() => {
     const authListener = supabase.auth.onAuthStateChange((_, session) => {
       if (session?.user) {
         setUser(session.user)
-        setCurrentPage('languageSelection')
+        if (conversation().length > 0) {
+          setCurrentPage('conversation')
+        } else {
+          setCurrentPage('languageSelection')
+        }
       } else {
         setUser(null)
         setCurrentPage('login')
@@ -45,12 +86,21 @@ function App() {
     if (language().trim() === '') return
     setLoading(true)
     try {
-      const prompt = `Pretend to be a person speaking the ${language()} language. Start a conversation with the user in ${language()} by creating a scenario involving two individuals, where the user is one of them. Speak only in ${language()}.`
-      const response = await createEvent('chatgpt_request', {
-        prompt: prompt,
+      // Get the scenario in English
+      const promptScenario = `Create a conversation scenario involving two individuals, where the user is one of them, in English.`
+      const scenarioResponse = await createEvent('chatgpt_request', {
+        prompt: promptScenario,
         response_type: 'text'
       })
-      setConversation([{ sender: 'AI', message: response }])
+      setScenario(scenarioResponse)
+
+      // Get the initial AI message in the target language
+      const promptAI = `Pretend to be a person speaking the ${language()} language. Start a conversation in ${language()} based on the following scenario: "${scenarioResponse}". Speak only in ${language()}.`
+      const aiResponse = await createEvent('chatgpt_request', {
+        prompt: promptAI,
+        response_type: 'text'
+      })
+      setConversation([{ sender: 'AI', message: aiResponse }])
       setCurrentPage('conversation')
     } catch (error) {
       console.error('Error starting conversation:', error)
@@ -110,9 +160,13 @@ function App() {
     await supabase.auth.signOut()
     setConversation([])
     setLanguage('')
+    setScenario('')
     setUserInput('')
     setFeedback('')
     setShowContinueOption(false)
+    localStorage.removeItem('conversation')
+    localStorage.removeItem('language')
+    localStorage.removeItem('scenario')
   }
 
   return (
@@ -171,6 +225,14 @@ function App() {
               Sign Out
             </button>
           </div>
+          <Show when={scenario()}>
+            <div class="mb-4 p-4 bg-gray-100 rounded-lg border border-gray-200">
+              <h3 class="text-xl font-semibold mb-2">Scenario:</h3>
+              <div class="text-gray-700 prose">
+                <SolidMarkdown children={scenario()} />
+              </div>
+            </div>
+          </Show>
           <div class="flex-1 overflow-y-auto mb-4">
             <For each={conversation()}>
               {(msg) => (
