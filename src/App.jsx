@@ -86,12 +86,8 @@ function App() {
     if (language().trim() === '') return
     setLoading(true)
     try {
-      // Get the scenario in English
-      const promptScenario = `Create a conversation scenario involving two individuals, where the user is one of them, in English.`
-      const scenarioResponse = await createEvent('chatgpt_request', {
-        prompt: promptScenario,
-        response_type: 'text'
-      })
+      // Set the scenario to the specific one
+      const scenarioResponse = "You are in a train station looking for your platform."
       setScenario(scenarioResponse)
 
       // Get the initial AI message in the target language

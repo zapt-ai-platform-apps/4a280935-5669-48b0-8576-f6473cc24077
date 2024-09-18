@@ -1,6 +1,6 @@
 # Language Play
 
-Language Play is an interactive web application designed to help users learn a new language through conversational practice with an AI. The app creates immersive scenarios where the user engages in dialogue with an AI character in the chosen language, receives feedback, and improves fluency.
+Language Play is an interactive web application designed to help users learn a new language through conversational practice with an AI. The app provides a specific scenario where the user practices language skills by engaging in a dialogue, receives feedback, and improves fluency.
 
 ## User Journey
 
@@ -13,7 +13,8 @@ Language Play is an interactive web application designed to help users learn a n
    - The user inputs the desired language (e.g., Spanish, French, Japanese).
 
 3. **View Scenario**
-   - The app generates a conversation scenario in English.
+   - The app presents a predefined conversation scenario:
+     - *"You are in a train station looking for your platform."*
    - The scenario is displayed above the conversation area to provide context.
 
 4. **Start Conversation**
@@ -45,7 +46,7 @@ Language Play is an interactive web application designed to help users learn a n
 
 - **Interactive Learning:** Engages users in real-time conversations to practice language skills.
 - **AI Feedback:** Provides instant evaluations and constructive feedback on user responses.
-- **Scenario Context:** Displays the conversation scenario in English to guide the user.
+- **Specific Scenario:** Focuses on a scenario of being in a train station looking for a platform.
 - **Conversation Persistence:** Automatically saves the conversation state for seamless user experience.
 - **Multi-language Support:** Users can choose any language they wish to learn.
 - **User Authentication:** Secure sign-in with popular social providers.
@@ -55,7 +56,7 @@ Language Play is an interactive web application designed to help users learn a n
 
 1. Open the app and sign in with your preferred social account.
 2. Enter the language you want to learn.
-3. Read the scenario presented in English above the conversation area.
+3. Read the scenario presented above the conversation area.
 4. Review the AI's initial message in the chosen language.
 5. Type your response in the chosen language and send it.
 6. Review the feedback provided.
