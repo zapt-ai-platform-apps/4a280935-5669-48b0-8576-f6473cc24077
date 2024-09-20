@@ -173,82 +173,122 @@ function App() {
   return (
     <div class="min-h-screen flex flex-col">
       <Show when={currentPage() === 'landingPage'}>
-        <div class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-between text-white">
-          <header class="w-full p-6 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">Language Play</h1>
-            <button
-              class="px-4 py-2 bg-white text-blue-600 rounded hover:bg-gray-200 cursor-pointer"
-              onClick={handleGetStarted}
-            >
-              Get Started
-            </button>
-          </header>
-          <main class="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <h2 class="text-6xl font-extrabold mb-6">Learn Languages Through Conversation</h2>
-            <p class="text-xl mb-8">Immerse yourself in real-life scenarios and improve your language skills with personalized AI feedback.</p>
-            <div class="space-x-4">
+        <div class="flex-1">
+          <header class="fixed w-full bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg z-50">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+              <h1 class="text-3xl font-bold text-blue-600">Language Play</h1>
+              <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-800 hover:text-blue-600 cursor-pointer">Features</a>
+                <a href="#how-it-works" class="text-gray-800 hover:text-blue-600 cursor-pointer">How It Works</a>
+                <a href="#testimonials" class="text-gray-800 hover:text-blue-600 cursor-pointer">Testimonials</a>
+                <a href="#faq" class="text-gray-800 hover:text-blue-600 cursor-pointer">FAQ</a>
+              </nav>
               <button
-                class="px-6 py-3 bg-white text-blue-600 rounded hover:bg-gray-200 cursor-pointer"
+                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer"
                 onClick={handleGetStarted}
               >
                 Get Started
               </button>
-              <button
-                class="px-6 py-3 bg-transparent border border-white rounded hover:bg-white hover:text-blue-600 cursor-pointer"
-                onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-              >
-                Learn More
-              </button>
             </div>
+          </header>
+          <main class="mt-16">
+            <section class="relative bg-cover bg-center h-screen" style="background-image: url('/assets/language-hero.jpg');">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-75"></div>
+              <div class="relative z-10 max-w-3xl mx-auto h-full flex flex-col items-center justify-center text-center text-white px-4">
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in">Learn Languages Through Conversation</h2>
+                <p class="text-xl md:text-2xl mb-8 animate-fade-in">Immerse yourself in real-life scenarios and improve your language skills with personalized AI feedback.</p>
+                <div class="space-x-4">
+                  <button
+                    class="px-6 py-3 bg-white text-blue-600 rounded hover:bg-gray-200 cursor-pointer"
+                    onClick={handleGetStarted}
+                  >
+                    Get Started
+                  </button>
+                  <button
+                    class="px-6 py-3 bg-transparent border border-white rounded hover:bg-white hover:text-blue-600 cursor-pointer"
+                    onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section id="features" class="max-w-7xl mx-auto py-16 px-4">
+              <h2 class="text-4xl font-bold mb-8 text-center text-blue-600">Features</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-50 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer">
+                  <img src="/assets/conversation.svg" alt="Interactive Conversations" class="mx-auto mb-4 h-24" />
+                  <h3 class="text-2xl font-semibold mb-4">Interactive Conversations</h3>
+                  <p>Engage in dialogues that mimic real-life situations to practice and enhance your speaking skills.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer">
+                  <img src="/assets/feedback.svg" alt="Personalized AI Feedback" class="mx-auto mb-4 h-24" />
+                  <h3 class="text-2xl font-semibold mb-4">Personalized AI Feedback</h3>
+                  <p>Receive instant evaluations and constructive feedback tailored to your responses.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer">
+                  <img src="/assets/languages.svg" alt="Multiple Language Support" class="mx-auto mb-4 h-24" />
+                  <h3 class="text-2xl font-semibold mb-4">Multiple Language Support</h3>
+                  <p>Choose from a wide range of languages to learn and improve at your own pace.</p>
+                </div>
+              </div>
+            </section>
+            <section id="how-it-works" class="max-w-7xl mx-auto py-16 px-4 bg-gray-100">
+              <h2 class="text-4xl font-bold mb-8 text-center text-blue-600">How It Works</h2>
+              <ol class="space-y-4 text-lg">
+                <li><strong>Sign In:</strong> Create an account or sign in using your preferred method.</li>
+                <li><strong>Select a Language:</strong> Choose the language you want to learn.</li>
+                <li><strong>Start Conversing:</strong> Engage in conversations based on real-life scenarios.</li>
+                <li><strong>Receive Feedback:</strong> Get instant feedback to improve your language skills.</li>
+                <li><strong>Practice Anytime:</strong> Resume conversations anytime, anywhere.</li>
+              </ol>
+            </section>
+            <section id="testimonials" class="max-w-7xl mx-auto py-16 px-4">
+              <h2 class="text-4xl font-bold mb-8 text-center text-blue-600">Testimonials</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
+                  <div class="flex items-center mb-4">
+                    <img src="/assets/user1.jpg" alt="Alex" class="h-12 w-12 rounded-full" />
+                    <p class="ml-4 text-xl font-semibold">Alex T.</p>
+                  </div>
+                  <p class="text-xl italic">"Language Play has revolutionized the way I practice French. The conversations feel so real!"</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
+                  <div class="flex items-center mb-4">
+                    <img src="/assets/user2.jpg" alt="Maria" class="h-12 w-12 rounded-full" />
+                    <p class="ml-4 text-xl font-semibold">Maria S.</p>
+                  </div>
+                  <p class="text-xl italic">"The instant feedback helps me correct mistakes immediately. Highly recommended!"</p>
+                </div>
+              </div>
+            </section>
+            <section id="faq" class="max-w-7xl mx-auto py-16 px-4 bg-gray-100">
+              <h2 class="text-4xl font-bold mb-8 text-center text-blue-600">Frequently Asked Questions</h2>
+              <div class="space-y-4">
+                <details class="p-4 bg-white rounded-lg shadow cursor-pointer">
+                  <summary class="font-semibold">Which languages are supported?</summary>
+                  <p class="mt-2 text-gray-700">Language Play supports a wide range of languages. You can choose any language you wish to learn.</p>
+                </details>
+                <details class="p-4 bg-white rounded-lg shadow cursor-pointer">
+                  <summary class="font-semibold">Is there a cost to use the app?</summary>
+                  <p class="mt-2 text-gray-700">Language Play is currently free to use for all users.</p>
+                </details>
+                <details class="p-4 bg-white rounded-lg shadow cursor-pointer">
+                  <summary class="font-semibold">How is my data protected?</summary>
+                  <p class="mt-2 text-gray-700">We prioritize your privacy and use secure authentication methods. Your data is stored safely.</p>
+                </details>
+              </div>
+            </section>
           </main>
-          <footer class="w-full p-6 bg-blue-700 text-center">
-            <p>&copy; 2023 Language Play. All rights reserved.</p>
-          </footer>
-        </div>
-        <div class="bg-white text-gray-800">
-          <section class="max-w-7xl mx-auto py-16 px-4">
-            <h2 class="text-4xl font-bold mb-8 text-center">Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="p-6 bg-gray-50 rounded-lg shadow text-center">
-                <h3 class="text-2xl font-semibold mb-4">Interactive Conversations</h3>
-                <p>Engage in dialogues that mimic real-life situations to practice and enhance your speaking skills.</p>
-              </div>
-              <div class="p-6 bg-gray-50 rounded-lg shadow text-center">
-                <h3 class="text-2xl font-semibold mb-4">Personalized AI Feedback</h3>
-                <p>Receive instant evaluations and constructive feedback tailored to your responses.</p>
-              </div>
-              <div class="p-6 bg-gray-50 rounded-lg shadow text-center">
-                <h3 class="text-2xl font-semibold mb-4">Multiple Language Support</h3>
-                <p>Choose from a wide range of languages to learn and improve at your own pace.</p>
+          <footer class="bg-gray-800 text-white py-8">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+              <p class="text-center md:text-left">&copy; 2023 Language Play. All rights reserved.</p>
+              <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-blue-400 cursor-pointer">Contact Us</a>
+                <a href="#" class="hover:text-blue-400 cursor-pointer">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-400 cursor-pointer">Terms of Service</a>
               </div>
             </div>
-          </section>
-          <section class="max-w-7xl mx-auto py-16 px-4 bg-gray-100">
-            <h2 class="text-4xl font-bold mb-8 text-center">How It Works</h2>
-            <ol class="space-y-4 text-lg">
-              <li><strong>Sign In:</strong> Create an account or sign in using your preferred method.</li>
-              <li><strong>Select a Language:</strong> Choose the language you want to learn.</li>
-              <li><strong>Start Conversing:</strong> Engage in conversations based on real-life scenarios.</li>
-              <li><strong>Receive Feedback:</strong> Get instant feedback to improve your language skills.</li>
-              <li><strong>Practice Anytime:</strong> Resume conversations anytime, anywhere.</li>
-            </ol>
-          </section>
-          <section class="max-w-7xl mx-auto py-16 px-4">
-            <h2 class="text-4xl font-bold mb-8 text-center">Testimonials</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="p-6 bg-gray-50 rounded-lg shadow">
-                <p class="text-xl italic">"Language Play has revolutionized the way I practice French. The conversations feel so real!"</p>
-                <p class="mt-4 text-right font-semibold">- Alex T.</p>
-              </div>
-              <div class="p-6 bg-gray-50 rounded-lg shadow">
-                <p class="text-xl italic">"The instant feedback helps me correct mistakes immediately. Highly recommended!"</p>
-                <p class="mt-4 text-right font-semibold">- Maria S.</p>
-              </div>
-            </div>
-          </section>
-          <footer class="py-8 bg-gray-200 text-center">
-            <p>&copy; 2023 Language Play. All rights reserved.</p>
-            <a href="#" class="text-blue-500 hover:underline">Contact Us</a>
           </footer>
         </div>
       </Show>
