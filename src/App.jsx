@@ -171,7 +171,7 @@ function App() {
   }
 
   return (
-    <div class="min-h-screen flex flex-col">
+    <div class="min-h-screen flex flex-col text-gray-800">
       <Show when={currentPage() === 'landingPage'}>
         <div class="flex-1">
           <header class="fixed w-full bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg z-50">
@@ -216,18 +216,15 @@ function App() {
             <section id="features" class="max-w-7xl mx-auto py-16 px-4">
               <h2 class="text-4xl font-bold mb-8 text-center text-blue-600">Features</h2>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 bg-gray-50 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer">
-                  <img src="/assets/conversation.svg" alt="Interactive Conversations" class="mx-auto mb-4 h-24" />
+                <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer text-center">
                   <h3 class="text-2xl font-semibold mb-4">Interactive Conversations</h3>
                   <p>Engage in dialogues that mimic real-life situations to practice and enhance your speaking skills.</p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer">
-                  <img src="/assets/feedback.svg" alt="Personalized AI Feedback" class="mx-auto mb-4 h-24" />
+                <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer text-center">
                   <h3 class="text-2xl font-semibold mb-4">Personalized AI Feedback</h3>
                   <p>Receive instant evaluations and constructive feedback tailored to your responses.</p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer">
-                  <img src="/assets/languages.svg" alt="Multiple Language Support" class="mx-auto mb-4 h-24" />
+                <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer text-center">
                   <h3 class="text-2xl font-semibold mb-4">Multiple Language Support</h3>
                   <p>Choose from a wide range of languages to learn and improve at your own pace.</p>
                 </div>
@@ -248,14 +245,12 @@ function App() {
               <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
                   <div class="flex items-center mb-4">
-                    <img src="/assets/user1.jpg" alt="Alex" class="h-12 w-12 rounded-full" />
                     <p class="ml-4 text-xl font-semibold">Alex T.</p>
                   </div>
                   <p class="text-xl italic">"Language Play has revolutionized the way I practice French. The conversations feel so real!"</p>
                 </div>
                 <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
                   <div class="flex items-center mb-4">
-                    <img src="/assets/user2.jpg" alt="Maria" class="h-12 w-12 rounded-full" />
                     <p class="ml-4 text-xl font-semibold">Maria S.</p>
                   </div>
                   <p class="text-xl italic">"The instant feedback helps me correct mistakes immediately. Highly recommended!"</p>
@@ -282,7 +277,7 @@ function App() {
           </main>
           <footer class="bg-gray-800 text-white py-8">
             <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-              <p class="text-center md:text-left">&copy; 2023 Language Play. All rights reserved.</p>
+              <p class="text-center md:text-left">&copy; 2024 Language Play. All rights reserved.</p>
               <div class="flex space-x-4 mt-4 md:mt-0">
                 <a href="#" class="hover:text-blue-400 cursor-pointer">Contact Us</a>
                 <a href="#" class="hover:text-blue-400 cursor-pointer">Privacy Policy</a>

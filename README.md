@@ -6,25 +6,25 @@ Language Play is an interactive web application designed to help users learn new
 
 1. **Visit the Landing Page**
    - The user navigates to the Language Play app.
-   - An exceptionally professional and visually stunning landing page is displayed.
-   - The landing page includes:
-     - A captivating hero section with an eye-catching background image.
-     - A welcoming headline with dynamic animations.
-     - A brief overview of the app's purpose and benefits highlighted with engaging graphics.
+   - The landing page is exceptionally professional and visually appealing.
+   - It includes:
+     - A captivating hero section with a dynamic background.
+     - A welcoming headline with smooth animations.
+     - A brief overview of the app's purpose and benefits.
      - Clear call-to-action buttons: "Get Started" and "Learn More".
      - Interactive elements that respond to user interactions.
-     - Information sections highlighting key features with icons and illustrations.
-     - Testimonials from satisfied users displayed with profile pictures.
+     - Information sections highlighting key features.
+     - Testimonials from satisfied users.
      - A sticky navigation bar for easy access to different sections.
      - A footer with navigation links and contact information.
 
 2. **Explore Features**
    - Scrolling down reveals detailed sections about:
-     - **Interactive Conversations**: How users can practice real-life dialogues, with illustrative animations.
-     - **Personalized AI Feedback**: Explanation of instant feedback mechanisms, showcased with examples.
-     - **Multiple Language Support**: List of available languages to learn, presented with flags or icons.
-     - **User Testimonials**: Real feedback from users who improved their skills, displayed in a carousel format.
-     - **How It Works**: Step-by-step guide on using the app effectively, using infographics.
+     - **Interactive Conversations**: How users can practice real-life dialogues.
+     - **Personalized AI Feedback**: Explanation of instant feedback mechanisms.
+     - **Multiple Language Support**: List of available languages to learn.
+     - **User Testimonials**: Real feedback from users who improved their skills.
+     - **How It Works**: Step-by-step guide on using the app effectively.
      - **Frequently Asked Questions**: A collapsible FAQ section addressing common queries.
 
 3. **Sign In**
@@ -71,7 +71,7 @@ Language Play is an interactive web application designed to help users learn new
 
 ## Features
 
-- **Exceptional Landing Page:** An enhanced, engaging, and visually stunning interface that captivates users.
+- **Exceptional Landing Page:** An enhanced, engaging, and visually appealing interface that captivates users.
 - **Interactive Learning:** Real-time conversations to practice language skills in realistic scenarios.
 - **Personalized AI Feedback:** Instant evaluations and constructive feedback to improve proficiency.
 - **Specific Scenarios:** Focused on practical situations to enhance real-world language use.
