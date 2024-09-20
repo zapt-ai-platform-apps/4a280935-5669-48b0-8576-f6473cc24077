@@ -6,7 +6,7 @@ import { SolidMarkdown } from "solid-markdown"
 
 function App() {
   const [user, setUser] = createSignal(null)
-  const [currentPage, setCurrentPage] = createSignal('login')
+  const [currentPage, setCurrentPage] = createSignal('landingPage')
   const [loading, setLoading] = createSignal(false)
   const [language, setLanguage] = createSignal('')
   const [scenario, setScenario] = createSignal('')
@@ -72,7 +72,7 @@ function App() {
         }
       } else {
         setUser(null)
-        setCurrentPage('login')
+        setCurrentPage('landingPage')
       }
     })
 
@@ -80,6 +80,10 @@ function App() {
       authListener.data.unsubscribe()
     }
   })
+
+  const handleGetStarted = () => {
+    setCurrentPage('login')
+  }
 
   const handleLanguageSelection = async (e) => {
     e.preventDefault()
@@ -163,10 +167,51 @@ function App() {
     localStorage.removeItem('conversation')
     localStorage.removeItem('language')
     localStorage.removeItem('scenario')
+    setCurrentPage('landingPage')
   }
 
   return (
     <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800">
+      <Show when={currentPage() === 'landingPage'}>
+        <div class="w-full max-w-4xl p-6 bg-white rounded-lg shadow-md">
+          <h1 class="text-5xl font-bold mb-6 text-center">Welcome to Language Play</h1>
+          <p class="text-xl mb-6 text-center">
+            Practice and improve your language skills through interactive conversations with AI.
+          </p>
+          <div class="flex justify-center space-x-4">
+            <button
+              class="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+              onClick={handleGetStarted}
+            >
+              Get Started
+            </button>
+            <button
+              class="px-6 py-3 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 cursor-pointer"
+              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+            >
+              Learn More
+            </button>
+          </div>
+          <div class="mt-12">
+            <h2 class="text-3xl font-bold mb-4 text-center">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
+                <h3 class="text-xl font-semibold mb-2">Interactive Learning</h3>
+                <p>Engage in real-time conversations to practice language skills.</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
+                <h3 class="text-xl font-semibold mb-2">AI Feedback</h3>
+                <p>Receive instant evaluations and constructive feedback.</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
+                <h3 class="text-xl font-semibold mb-2">Multiple Languages</h3>
+                <p>Choose any language you wish to learn and improve.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Show>
+
       <Show when={currentPage() === 'login'}>
         <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
           <h2 class="text-2xl font-bold mb-4 text-center">Sign in with ZAPT</h2>
